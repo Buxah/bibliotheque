@@ -17,7 +17,12 @@ export class ClientDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.apiService.getClientDetail().subscribe(data => {
+    this.getClient();
+  }
+
+  getClient(): void {
+    const id_client = +this.route.snapshot.paramMap.get('id_client');
+    this.apiService.getClientDetail(id_client).subscribe(data => {
       this.client = data;
     });
   }

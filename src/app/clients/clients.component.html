@@ -8,33 +8,38 @@
 
         <ul class="search-result">
           <li *ngFor="let client of clients$ | async" >
-            <a routerLink="/client-detail/{{client.id}}">
+            <a routerLink="/client-detail/{{client.id_clientm}}">
               {{client.nom}} {{client.prenom}}
             </a>
           </li>
         </ul>
       </div>
     </div>
-    <table class="table table-striped">
-      <thead>
-      <tr>
-        <th class="hidden">Id</th>
-        <th>Nom</th>
-        <th>Prénom</th>
-        <th>Date de naissance</th>
-        <th>Email</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let client of clients">
-        <td class="hidden">{{client.id_client}}</td>
-        <td>{{client.nom}}</td>
-        <td>{{client.prenom}}</td>
-        <td>{{client.date_naissance}}</td>
-        <td>{{client.email}}</td>
-      </tr>
-      </tbody>
-    </table>
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th class="hidden">#</th>
+          <th>Nom</th>
+          <th>Prénom</th>
+          <th>Date de naissance</th>
+          <th>Email</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let client of clients" routerLink="/client-detail/{{client.id_client}}"> 
+        
+            <td class="hidden">{{client.id_client}}</td>
+          
+            <td>{{client.nom}}</td>
+            <td>{{client.prenom}}</td>
+            <td>{{client.date_naissance}}</td>
+            <td>{{client.email}}</td>
+          
+        </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
 
