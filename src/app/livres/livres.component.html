@@ -1,0 +1,38 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm">
+      <div id="search-component" >
+        <h4>Recherche livre</h4>
+
+        <input #searchBox id="search-box" (input)="search(searchBox.value)" />
+
+        <ul class="search-result">
+          <li *ngFor="let livre of livres$ | async" >
+            <a routerLink="/livre-detail/{{livre.id}}">
+              {{livre.titre}}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th class="hidden">Id</th>
+        <th>Titre</th>
+        <th>Auteur</th>
+        <th>Edition</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let livre of livres">
+        <td class="hidden">{{livre.id_livre}}</td>
+        <td>{{livre.titre}}</td>
+        <td>{{livre.auteur}}</td>
+        <td>{{livre.edition}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

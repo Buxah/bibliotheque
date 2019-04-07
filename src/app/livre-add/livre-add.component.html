@@ -1,0 +1,22 @@
+<form #addLivre="ngForm" autocomplete="off" [formGroup]="formLivre" (ngSubmit)="onClickSubmit(addLivre.value)">
+  <div class="form-group row">
+    <label for="titre" class="col-sm-2 col-form-label">Titre</label>
+    <div class="col-sm-3">
+      <input name="titre" formControlName="titre" placeholder="Alice au pays des merveilles" type="text" class="form-control">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="auteur" class="col-sm-2 col-form-label">Auteur</label>
+    <div class="col-sm-3">
+      <input name="auteur" formControlName="auteur" placeholder="Lewis Carroll" type="text" class="form-control">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="edition" class="col-sm-2 col-form-label">Edition</label>
+    <div class="col-sm-3">
+      <input name="edition" formControlName="edition" placeholder="Soleil Productions" type="text" class="form-control">
+      <input class="btn btn-primary" type="submit" value="Ajouter"/>&nbsp;
+      <button class="btn btn-danger" (click)="goBack()">Annuler</button>
+    </div>
+  </div>
+</form>
