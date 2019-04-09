@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class EditService {
   public auteur: string;
   public edition: Date;
 
-  constructor() { }
+  constructor(public http: HttpClient) { }
 
   edit_client(id_client, nom, prenom, date_naissance, email){
     this.id_client = id_client; 
@@ -23,6 +24,18 @@ export class EditService {
     this.prenom = prenom;
     this.date_naissance = date_naissance;
     this.email = email;
+  }
+
+  editClient(formId, formNom, formPrenom, formDate, formEmail){
+    return this.http.post('http://localhost:3000/clientEdit', {
+      id: formId,
+      nom: formNom,
+      prenom: formPrenom,
+      date_naissance: formDate,
+      email: formEmail
+    }).subscribe(data => {
+      console.log(data);
+    });
   }
 
   get_client(){

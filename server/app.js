@@ -6,15 +6,14 @@ var logger = require('morgan');
 var mysql = require ('mysql');
 var cors = require ('cors');
 var bodyParser = require ('body-parser');
-
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var clientsRouter = require('./routes/clients');
 var clientAddRouter = require('./routes/client-add');
+var clientEditRouter = require('./routes/client-edit');
 var livresRouter = require('./routes/livres');
 var livreAddRouter = require('./routes/livre-add');
 var exemplaireAdd = require('./routes/exemplaireAdd');
-var clientDetail = require('./routes/client-detail');
 
 var app = express();
 
@@ -35,10 +34,10 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/clients', clientsRouter);
 app.use('/clientAdd', clientAddRouter);
+app.use('/clientEdit', clientEditRouter);
 app.use('/livres', livresRouter);
 app.use('/livreAdd', livreAddRouter);
 app.use('/exemplaireAdd', exemplaireAdd);
-app.use('/clientDetail', clientDetail);
 
 var connection = mysql.createConnection({
   host: 'localhost',

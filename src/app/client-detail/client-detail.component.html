@@ -5,37 +5,37 @@
   <div class="col-6">
       <h2>{{display.nom | uppercase}} {{display.prenom}}</h2>
       <br>
-      <form>
+      <form #editClient="ngForm" autocomplete="off" [formGroup]="formClient" (ngSubmit)="onClickSubmit(editClient.value)"> 
         <div class="form-group row">
-          <label for="id" class="col-sm-4 col-form-label">id</label>
+          <label for="id_client" class="col-sm-4 col-form-label">id</label>
           <div class="col-sm">
-            <input [(ngModel)]="display.id" readonly name="id" placeholder="id" type="text" class="form-control">
+            <input formControlName="id_client" [(ngModel)]="display.id" readonly name="id_client" placeholder="id_client" type="text" class="form-control">
           </div>
         </div>
         <div class="form-group row">
           <label for="nom" class="col-sm-4 col-form-label">Nom</label>
           <div class="col-sm">
-            <input [(ngModel)]="display.nom" name="nom" placeholder="nom" type="text" class="form-control">
+            <input formControlName="nom" [(ngModel)]="display.nom" name="nom" placeholder="nom" type="text" class="form-control">
           </div>
         </div>
         <div class="form-group row">
           <label for="prenom" class="col-sm-4 col-form-label">Prénom</label>
           <div class="col-sm">
-            <input [(ngModel)]="display.prenom" name="prenom" placeholder="prenom" type="text" class="form-control">
+            <input formControlName="prenom" [(ngModel)]="display.prenom" name="prenom" placeholder="prenom" type="text" class="form-control">
           </div>
         </div>
         <div class="form-group row">
           <label for="date_naissance" class="col-sm-4 col-form-label">Date de naissance</label>
           <div class="col-sm">
-            <input  name="date_naissance" placeholder="date_naissance" type="date" [ngModel] ="display.date_naissance | date:'yyyy-MM-dd'" class="form-control">
+            <input formControlName="date_naissance" name="date_naissance" placeholder="date_naissance" type="date" [ngModel] ="display.date_naissance | date:'yyyy-MM-dd'" class="form-control">
           </div>
         </div>
         <div class="form-group row">
           <label for="email" class="col-sm-4 col-form-label">Email</label>
           <div class="col-sm">
-            <input [(ngModel)]="display.email" name="email" placeholder="email" type="email" class="form-control">
+            <input formControlName="email" [(ngModel)]="display.email" name="email" placeholder="email" type="email" class="form-control">
             <br>
-            <button class="btn btn-primary" (click)="save()">Modifier</button>&nbsp;
+            <input type="submit" class="btn btn-primary" value="Modifier"/>&nbsp;
             <button class="btn btn-danger" (click)="delete(client)">Supprimer</button>
           </div>
         </div>
