@@ -15,6 +15,7 @@ import { LivreAddComponent } from './livre-add/livre-add.component';
 import { LivreDetailComponent } from './livre-detail/livre-detail.component';
 import { LivreAddExemplaireComponent } from './livre-add-exemplaire/livre-add-exemplaire.component';
 import { ClientDetailComponent } from './client-detail/client-detail.component';
+import { EmpruntComponent } from './emprunt/emprunt.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { ClientDetailComponent } from './client-detail/client-detail.component';
     LivreAddComponent,
     LivreDetailComponent,
     LivreAddExemplaireComponent,
-    ClientDetailComponent
+    ClientDetailComponent,
+    EmpruntComponent
   ],
   imports: [
     BrowserModule,

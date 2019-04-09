@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { EditService } from '../edit.service';
 import { FormGroup, FormControl } from '@angular/forms';
+import { EmpruntService } from '../emprunt.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-client-detail',
@@ -20,7 +22,9 @@ export class ClientDetailComponent implements OnInit {
   });
 
   constructor(
-    public edit: EditService
+    public edit: EditService,
+    public emprunt: EmpruntService,
+    public router: Router
   ) {}
   
 
@@ -32,6 +36,10 @@ export class ClientDetailComponent implements OnInit {
   onClickSubmit(data){
     this.edit.editClient(data.id_client, data.nom, data.prenom, data.date_naissance, data.email);
     this.showMsg = true;
+  }
+
+  add_emprunt(id){
+    this.emprunt.add_emprunt(id);
   }
 
 }

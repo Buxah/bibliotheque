@@ -7,6 +7,7 @@ import { LivresComponent } from './livres/livres.component';
 import { LivreAddExemplaireComponent } from './livre-add-exemplaire/livre-add-exemplaire.component';
 import { ClientDetailComponent } from './client-detail/client-detail.component';
 import { LivreDetailComponent } from './livre-detail/livre-detail.component';
+import { EmpruntComponent } from './emprunt/emprunt.component';
 
 
 const routes: Routes = [
@@ -17,7 +18,9 @@ const routes: Routes = [
   {path: 'livres', component: LivresComponent},
   {path: 'livre-add', component: LivreAddComponent},
   {path: 'livre-add-exemplaire', component: LivreAddExemplaireComponent},
-  {path: 'livreDetail', component: LivreDetailComponent}
+  {path: 'livreDetail', component: LivreDetailComponent},
+  {path: 'emprunt', component: EmpruntComponent}
+
   
 
 ];

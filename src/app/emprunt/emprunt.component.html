@@ -1,0 +1,34 @@
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-6">
+        <br>
+        <form #addEmprunt="ngForm" autocomplete="off" [formGroup]="formEmprunt" (ngSubmit)="onClickSubmit(addEmprunt.value)"> 
+          <div *ngIf="showMsg">
+            <div class="col-xs-12">
+              <p class="alert alert-success">
+                  <strong>Emprunt effectué !</strong>
+              </p>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="id_client" class="col-sm-4 col-form-label">id_client</label>
+            <div class="col-sm">
+              <input formControlName="id_client" name="id_client" placeholder="id_client" type="text" class="form-control">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="id_exemplaire" class="col-sm-4 col-form-label">id_exemplaire</label>
+            <div class="col-sm">
+              <input formControlName="id_exemplaire" name="id_exemplaire" placeholder="id_exemplaire" type="text" class="form-control">
+              <br>
+              <input type="submit" class="btn btn-primary" value="Ajouter"/>&nbsp;
+              <input class="btn btn-danger" (click)="goBack()" value="Annuler"/>
+            </div>
+          </div>
+        </form>
+    </div>
+    
+  </div>
+  
+</div>
