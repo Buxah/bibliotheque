@@ -1,4 +1,12 @@
 <form #addLivre="ngForm" autocomplete="off" [formGroup]="formLivre" (ngSubmit)="onClickSubmit(addLivre.value)">
+  <div *ngIf="showMsg">
+    <div class="col-xs-12">
+      <p class="alert alert-success">
+          <strong>Livre ajouté avec succès !</strong>
+
+      </p>
+    </div>
+  </div>
   <div class="form-group row">
     <label for="titre" class="col-sm-2 col-form-label">Titre</label>
     <div class="col-sm-3">
@@ -16,7 +24,7 @@
     <div class="col-sm-3">
       <input name="edition" formControlName="edition" placeholder="Soleil Productions" type="text" class="form-control">
       <input class="btn btn-primary" type="submit" value="Ajouter"/>&nbsp;
-      <button class="btn btn-danger" (click)="goBack()">Annuler</button>
+      <input class="btn btn-danger" (click)="goBack()" value="Annuler"/>
     </div>
   </div>
 </form>

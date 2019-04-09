@@ -61,6 +61,14 @@ export class EditService {
     });
   }
 
+  deleteLivre(formId){
+    return this.http.post('http://localhost:3000/livreDelete', {
+      id: formId
+    }).subscribe(data => {
+      console.log(data);
+    });
+  }
+
   get_livre(){
     return {id: this.id_livre, titre: this.titre, auteur: this.auteur, edition: this.edition};
   

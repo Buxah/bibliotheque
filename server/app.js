@@ -14,6 +14,7 @@ var clientEditRouter = require('./routes/client-edit');
 var livresRouter = require('./routes/livres');
 var livreAddRouter = require('./routes/livre-add');
 var livreEditRouter = require('./routes/livre-edit');
+var livreDeleteRouter = require('./routes/livre-delete');
 var exemplaireAdd = require('./routes/exemplaireAdd');
 
 var app = express();
@@ -39,6 +40,7 @@ app.use('/clientEdit', clientEditRouter);
 app.use('/livres', livresRouter);
 app.use('/livreAdd', livreAddRouter);
 app.use('/livreEdit', livreEditRouter);
+app.use('/livreDelete', livreDeleteRouter);
 app.use('/exemplaireAdd', exemplaireAdd);
 
 var connection = mysql.createConnection({

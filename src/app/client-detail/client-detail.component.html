@@ -6,6 +6,14 @@
       <h2>{{display.nom | uppercase}} {{display.prenom}}</h2>
       <br>
       <form #editClient="ngForm" autocomplete="off" [formGroup]="formClient" (ngSubmit)="onClickSubmit(editClient.value)"> 
+        <div *ngIf="showMsg">
+          <div class="col-xs-12">
+            <p class="alert alert-success">
+                <strong>Modifications effectuée !</strong>
+  
+            </p>
+          </div>
+        </div>
         <div class="form-group row">
           <label for="id_client" class="col-sm-4 col-form-label">id</label>
           <div class="col-sm">

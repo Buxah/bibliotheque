@@ -9,7 +9,8 @@ import { Location } from '@angular/common';
   styleUrls: ['./client-add.component.css']
 })
 export class ClientAddComponent implements OnInit {
-
+  showMsg: boolean = false;
+  
   formClient = new FormGroup ({
     nom: new FormControl(),
     prenom: new FormControl(),
@@ -28,6 +29,7 @@ export class ClientAddComponent implements OnInit {
 
   onClickSubmit(data){
     this.api.addClient(data.nom, data.prenom, data.date_naissance, data.email);
+    this.showMsg = true;
   }
 
   goBack(): void {

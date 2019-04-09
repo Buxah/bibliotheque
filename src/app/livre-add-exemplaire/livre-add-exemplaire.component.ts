@@ -10,6 +10,8 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class LivreAddExemplaireComponent implements OnInit {
 
+  showMsg: boolean = false;
+  
   formExemplaire = new FormGroup ({
     id_livre: new FormControl(),
     actif: new FormControl()
@@ -25,6 +27,7 @@ export class LivreAddExemplaireComponent implements OnInit {
 
   onClickSubmit(data){
     this.api.addExemplaire(data.id_livre, data.actif);
+    this.showMsg = true;
   }
 
   goBack(): void {

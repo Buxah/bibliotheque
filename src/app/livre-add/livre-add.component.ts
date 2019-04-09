@@ -9,7 +9,8 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./livre-add.component.css']
 })
 export class LivreAddComponent implements OnInit {
-
+  showMsg: boolean = false;
+  
   formLivre = new FormGroup ({
     titre: new FormControl(),
     auteur: new FormControl(),
@@ -26,6 +27,7 @@ export class LivreAddComponent implements OnInit {
 
   onClickSubmit(data){
     this.api.addLivre(data.titre, data.auteur, data.edition);
+    this.showMsg = true;
   }
 
   goBack(): void {

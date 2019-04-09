@@ -1,4 +1,12 @@
 <form #addClient="ngForm" autocomplete="off" [formGroup]="formClient" (ngSubmit)="onClickSubmit(addClient.value)">
+  <div *ngIf="showMsg">
+    <div class="col-xs-12">
+      <p class="alert alert-success">
+          <strong>Client ajouté avec succès !</strong>
+
+      </p>
+    </div>
+  </div>  
   <div class="form-group row">
     <label for="nom" class="col-sm-2 col-form-label">Nom</label>
     <div class="col-sm-3">
@@ -22,7 +30,7 @@
     <div class="col-sm-3">
       <input name="email" formControlName="email" placeholder="xyz@xyz.xyz" type="email" class="form-control">
       <input class="btn btn-primary" type="submit" value="Ajouter"/>&nbsp;
-      <button class="btn btn-danger" (click)="goBack()">Annuler</button>
+      <input class="btn btn-danger" (click)="goBack()" value="Annuler"/>
     </div>
   </div>
 </form>

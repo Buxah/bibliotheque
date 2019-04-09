@@ -9,7 +9,8 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class ClientDetailComponent implements OnInit {
   public display: any;
-
+  showMsg: boolean = false;
+  
   formClient = new FormGroup ({
     id_client: new FormControl(),
     nom: new FormControl(),
@@ -30,6 +31,7 @@ export class ClientDetailComponent implements OnInit {
 
   onClickSubmit(data){
     this.edit.editClient(data.id_client, data.nom, data.prenom, data.date_naissance, data.email);
+    this.showMsg = true;
   }
 
 }

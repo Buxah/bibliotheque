@@ -5,6 +5,22 @@
         <h2>{{display.titre | uppercase}}</h2>
         <br>
         <form #editLivre="ngForm" autocomplete="off" [formGroup]="formLivre" (ngSubmit)="onClickSubmit(editLivre.value)">
+          <div *ngIf="showMsg">
+            <div class="col-xs-12">
+              <p class="alert alert-success">
+                  <strong>Modifications effectuée !</strong>
+    
+              </p>
+            </div>
+          </div>
+          <div *ngIf="showMsgDelete">
+            <div class="col-xs-12">
+              <p class="alert alert-danger">
+                  <strong>Livre supprimé avec succès !</strong>
+    
+              </p>
+            </div>
+          </div>
           <div class="form-group row">
             <label for="id" class="col-sm-4 col-form-label">id</label>
             <div class="col-sm">
@@ -29,7 +45,7 @@
               <input formControlName="edition" name="edition" placeholder="edition" type="text" [ngModel] ="display.edition" class="form-control">
               <br>
               <input type="submit" class="btn btn-primary" value="Modifier"/>&nbsp;
-              <button class="btn btn-danger" (click)="delete(client)">Supprimer</button>
+              <button class="btn btn-danger" (click)="onClickDelete(deleteLivre.value)">Supprimer</button>
             </div>
           </div>
         </form>

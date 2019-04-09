@@ -9,6 +9,8 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class LivreDetailComponent implements OnInit {
   public display: any;
+  showMsg: boolean = false;
+  showMsgDelete: boolean = false;
 
   formLivre = new FormGroup ({
     id_livre: new FormControl(),
@@ -28,5 +30,12 @@ export class LivreDetailComponent implements OnInit {
 
   onClickSubmit(data){
     this.edit.editLivre(data.id_livre, data.titre, data.auteur, data.edition);
+    this.showMsg = true;
   }
+
+  onClickDelete(data){
+    this.edit.deleteLivre(data.id_livre);
+    this.showMsgDelete = true;
+  }
+  
 }
