@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
+import { EditService } from '../edit.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-livres',
@@ -10,7 +12,10 @@ export class LivresComponent implements OnInit {
   livres: Object;
 
 
-  constructor(public apiService: ApiService) { }
+  constructor(
+    public apiService: ApiService,
+    public edit: EditService,
+    public router: Router) { }
 
   ngOnInit() {
     this.apiService.getLivres().subscribe(data => {
@@ -18,4 +23,7 @@ export class LivresComponent implements OnInit {
     });
   }
 
+  edit_livre(id, titre, auteur, edition){
+    this.edit.edit_livre(id, titre, auteur, edition);
+  }
 }

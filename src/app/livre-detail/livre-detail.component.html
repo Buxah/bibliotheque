@@ -1,3 +1,40 @@
-<p>
-  livre-detail works!
-</p>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-6">
+        <h2>{{display.titre | uppercase}}</h2>
+        <br>
+        <form>
+          <div class="form-group row">
+            <label for="id" class="col-sm-4 col-form-label">id</label>
+            <div class="col-sm">
+              <input [(ngModel)]="display.id" readonly name="id" placeholder="id" type="text" class="form-control">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="titre" class="col-sm-4 col-form-label">Titre</label>
+            <div class="col-sm">
+              <input [(ngModel)]="display.titre" name="titre" placeholder="titre" type="text" class="form-control">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="auteur" class="col-sm-4 col-form-label">Auteur</label>
+            <div class="col-sm">
+              <input [(ngModel)]="display.auteur" name="auteur" placeholder="auteur" type="text" class="form-control">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="edition" class="col-sm-4 col-form-label">Edition</label>
+            <div class="col-sm">
+              <input  name="edition" placeholder="edition" type="text" [ngModel] ="display.edition" class="form-control">
+              <br>
+              <button class="btn btn-primary" (click)="save()">Modifier</button>&nbsp;
+              <button class="btn btn-danger" (click)="delete(client)">Supprimer</button>
+            </div>
+          </div>
+        </form>
+    </div>
+    
+  </div>
+    
+  </div>

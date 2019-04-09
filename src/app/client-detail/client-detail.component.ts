@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { ApiService } from '../api.service';
+import { EditService } from '../edit.service';
 
 @Component({
   selector: 'app-client-detail',
@@ -8,23 +7,15 @@ import { ApiService } from '../api.service';
   styleUrls: ['./client-detail.component.css']
 })
 export class ClientDetailComponent implements OnInit {
-  client: Object;
+  public display: any;
 
   constructor(
-    private route: ActivatedRoute,
-    private apiService: ApiService,
-    private location: Location
-  ) { }
-
+    public edit: EditService
+  ) {}
+   
   ngOnInit() {
-    this.getClient();
-  }
-
-  getClient(): void {
-    const id_client = +this.route.snapshot.paramMap.get('id_client');
-    this.apiService.getClientDetail(id_client).subscribe(data => {
-      this.client = data;
-    });
+    this.display=this.edit.get_client();
+    console.log(this.display);
   }
 
 }

@@ -23,10 +23,6 @@ export class ApiService {
     });
   }
 
-  getClientDetail(id_client: number){
-    return this.http.get('http://localhost:3000/clientDetail');
-  }
-
   getLivres(){
     return this.http.get('http://localhost:3000/livres');
   }
