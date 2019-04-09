@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EditService } from '../edit.service';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-livre-detail',
@@ -8,6 +9,13 @@ import { EditService } from '../edit.service';
 })
 export class LivreDetailComponent implements OnInit {
   public display: any;
+
+  formLivre = new FormGroup ({
+    id_livre: new FormControl(),
+    titre: new FormControl(),
+    auteur: new FormControl(),
+    edition: new FormControl()
+  });
 
   constructor(
     public edit: EditService
@@ -18,4 +26,7 @@ export class LivreDetailComponent implements OnInit {
     console.log(this.display);
   }
 
+  onClickSubmit(data){
+    this.edit.editLivre(data.id_livre, data.titre, data.auteur, data.edition);
+  }
 }

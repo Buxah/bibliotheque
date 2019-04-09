@@ -50,6 +50,17 @@ export class EditService {
     this.edition = edition;
   }
 
+  editLivre(formId, formTitre, formAuteur, formEdition){
+    return this.http.post('http://localhost:3000/livreEdit', {
+      id: formId,
+      titre: formTitre,
+      auteur: formAuteur,
+      edition: formEdition
+    }).subscribe(data => {
+      console.log(data);
+    });
+  }
+
   get_livre(){
     return {id: this.id_livre, titre: this.titre, auteur: this.auteur, edition: this.edition};
   
